@@ -1,0 +1,101 @@
+body {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 20px;
+}
+.wheather-app {
+  background: linear-gradient(
+    109.6deg,
+    rgb(204, 228, 247) 11.2%,
+    rgb(237, 246, 250) 100.2%
+  );
+  padding: 30px;
+  border-radius: 10px;
+  max-width: 600px;
+}
+h1 {
+  font-weight: bold;
+  padding: 20px;
+}
+.cities-history a {
+  display: inline-block;
+  text-decoration: none;
+  color: grey;
+  font-size: 15px;
+  padding-right: 20px;
+}
+.header {
+  margin-bottom: 15px;
+}
+.current-btn {
+  font-size: 15px;
+  background-color: rgb(43, 91, 223);
+  border: 1px solid rgb(43, 91, 223);
+  color: white;
+  padding: 5px 15px;
+  transition: all 0.3s;
+}
+.current-btn:hover {
+  color: rgb(43, 91, 223);
+  background-color: white;
+}
+.search-box button {
+  height: 35px;
+  width: 40px;
+  background: transparent;
+  border: none;
+  transition: all 0.3s;
+  border: 1px solid rgb(39, 39, 39);
+  background-color: white;
+  border-radius: 5px;
+  margin-right: 2px;
+}
+.search-box button img {
+  transition: all 0.3s;
+}
+.search-box button:hover {
+  opacity: 1;
+}
+.search-box button:hover img {
+  transform: scale(1.1);
+}
+.search-box input {
+  border: 1px solid #d4d3d3;
+  border-radius: 5px;
+  max-width: 200px;
+  padding: 5px 10px;
+  font-size: 18px;
+  height: 38px;
+  border-radius: 5px;
+}
+.app-body {
+  padding: 20px 0 40px;
+}
+.app-body-right img {
+  border-radius: 5px;
+}
+.current-city {
+  font-weight: 700;
+  font-size: 40px;
+}
+.img-sun {
+  display: block;
+  margin: 0 15px 0 15px;
+}
+.curent-temperature {
+  font-weight: 300;
+  font-size: 35px;
+  padding-right: 15px;
+}
+.converter {
+  display: block;
+  text-decoration: none;
+  color: blue;
+  font-weight: 300;
+  font-size: 35px;
+}
+.day {
+  font-weight: 200;
+}
+.pic {
+  margin: 15px 0;
+}
