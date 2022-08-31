@@ -11,6 +11,7 @@ body {
   padding: 30px;
   border-radius: 10px;
   max-width: 600px;
+  margin: 0 auto;
 }
 h1 {
   font-weight: bold;
@@ -44,13 +45,13 @@ h1 {
   background: transparent;
   border: none;
   transition: all 0.3s;
-  border: 1px solid rgb(39, 39, 39);
+  border: 1px solid rgb(128, 128, 128);
   background-color: white;
   border-radius: 5px;
-  margin-right: 2px;
+  margin-right: 7px;
 }
 .search-box button img {
-  transition: all 0.3s;
+  transition: all 0.4s;
 }
 .search-box button:hover {
   opacity: 1;
@@ -70,31 +71,48 @@ h1 {
 .app-body {
   padding: 20px 0 40px;
 }
-.app-body-right img {
-  border-radius: 5px;
+.city-highliht {
+  margin-bottom: 10px;
 }
 .current-city {
   font-weight: 700;
-  font-size: 40px;
+  font-size: 35px;
+}
+.app-body-right {
+  width: 200px;
+  background-image: url(../images/d-sun.png);
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+  padding-top: 155px;
+  font-size: 30px;
+  color: white;
+}
+#desc {
+  text-align: center;
 }
 .img-sun {
   display: block;
-  margin: 0 15px 0 15px;
+  margin: 0 15px 0 0;
 }
 .curent-temperature {
   font-weight: 300;
-  font-size: 35px;
-  padding-right: 15px;
+  font-size: 30px;
+  padding-right: 10px;
 }
 .converter {
   display: block;
   text-decoration: none;
   color: blue;
   font-weight: 300;
-  font-size: 35px;
+  font-size: 30px;
+}
+.app-footer {
+  background-color: white;
+  padding: 20px 10px;
+  border-radius: 5px;
 }
 .day {
-  font-weight: 200;
+  font-weight: 400;
 }
 .pic {
   margin: 15px 0;

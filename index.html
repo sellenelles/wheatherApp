@@ -43,7 +43,10 @@
               Current
             </button>
           </div>
-          <form class="search-box" id="form">
+          <form
+            class="search-box d-flex align-items-center justify-content-between"
+            id="form"
+          >
             <button id="search" type="submit">
               <img
                 src="images/search.png"
@@ -62,87 +65,78 @@
         </div>
         <div class="app-body d-flex justify-content-between">
           <div class="app-body-left">
-            <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex flex-column city-highliht">
               <div class="current-city" id="city">Kyiv</div>
-              <img
-                src="images/sun.png"
-                class="img-sun"
-                alt="sunny"
-                width="35"
-              />
-              <div class="curent-temperature" id="celsium">
-                +<span id="data-celsium">25</span> °C
+              <div class="d-flex align-items-center">
+                <img
+                  src="images/sun.png"
+                  class="img-sun"
+                  alt="sunny"
+                  width="35"
+                />
+                <div class="curent-temperature" id="celsium">
+                  +<span id="data-celsium">25</span> °C
+                </div>
+                <a href="javascript:void(0);" class="converter" id="fahrenheit"
+                  >in °F</a
+                >
               </div>
-              <a href="javascript:void(0);" class="converter" id="fahrenheit"
-                >in °F</a
-              >
             </div>
             <div class="current-time" id="current-time">Monday 15:20</div>
-            <div class="details mt-2">
+            <div class="detailsd">
               <ul class="list-unstyled">
-                <li><span id="desc">Clear</span</li>
                 <li>Humidity: <span id="humidity">10</span>%</li>
                 <li>Wind: <span id="wind">10</span>km/h</li>
               </ul>
             </div>
           </div>
-          <div class="app-body-right">
-            <img src="images/sunny.png" alt="sunny" width="200" />
+          <div class="app-body-right" id="backgr-wheather">
+            <div id="desc">Clear</div>
           </div>
         </div>
         <div class="app-footer">
           <div class="row">
             <div class="col">
               <div class="d-flex flex-column align-items-center">
-                <div class="day">
-                  Mon
-                </div>
+                <div class="day">Mon</div>
                 <div class="pic">
-                  <img src="images/cloud.png" alt="cloud" width="25" />
+                  <img src="images/partly_cloudy.png" alt="cloud" width="30" />
                 </div>
                 <div class="temp">+27 °C</div>
               </div>
             </div>
             <div class="col">
               <div class="d-flex flex-column align-items-center">
-                <div class="day">
-                  Tue
-                </div>
+                <div class="day">Tue</div>
                 <div class="pic">
-                  <img src="images/sun.png" alt="sunny" width="25" />
+                  <img src="images/sun.png" alt="sunny" width="30" />
                 </div>
                 <div class="temp">+29 °C</div>
               </div>
             </div>
             <div class="col">
               <div class="d-flex flex-column align-items-center">
-                <div class="day">
-                  Wed
-                </div>
+                <div class="day">Wed</div>
                 <div class="pic">
-                  <img src="images/cloud.png" alt="cloud" width="25" />
+                  <img src="images/partly_cloudy.png" alt="cloud" width="30" />
                 </div>
                 <div class="temp">+25 °C</div>
               </div>
             </div>
             <div class="col">
               <div class="d-flex flex-column align-items-center">
-                <div class="day text-center">
-                  Thu
-                </div>
+                <div class="day text-center">Thu</div>
                 <div class="pic">
-                  <img src="images/sun.png" alt="sunny" width="25" />
+                  <img src="images/sun.png" alt="sunny" width="30" />
                 </div>
                 <div class="temp">+31 °C</div>
               </div>
             </div>
             <div class="col">
               <div class="d-flex flex-column align-items-center">
-                <div class="day">
-                  Fri
-                </div>
+                <div class="day">Fri</div>
                 <div class="pic">
-                  <img src="images/sun.png" alt="sunny" width="25" />
+                  <img src="images/sun.png" alt="sunny" width="30" />
                 </div>
                 <div class="temp">+34 °C</div>
               </div>

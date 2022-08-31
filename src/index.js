@@ -32,7 +32,7 @@ function converter(event) {
   let celsium = document.querySelector("#data-celsium");
   let fahrenheitInner = document.querySelector("#fahrenheit");
   let fahrenheit = (parseInt(celsium.innerHTML) * 9) / 5 + 32;
-  fahrenheitInner.innerHTML = `${fahrenheit} °F`;
+  fahrenheitInner.innerHTML = `/ ${fahrenheit} °F`;
 }
 let toFahrenheit = document.querySelector("#fahrenheit");
 toFahrenheit.addEventListener("click", converter);
@@ -47,6 +47,7 @@ function wheather(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  wheatherImg();
 }
 
 function searchCity(city) {
@@ -78,3 +79,15 @@ resultForm.addEventListener("submit", btnSubmit);
 
 let currLocation = document.querySelector("#current-location");
 currLocation.addEventListener("click", getCurrentLocation);
+
+function wheatherImg() {
+  let decs = document.querySelector("#desc").innerHTML;
+  let backgr = document.querySelector("#backgr-wheather");
+  if (decs.toLowerCase() === "clouds" || decs.toLowerCase() === "rain") {
+    backgr.style.backgroundImage = "url(./images/d-cloud.png)";
+  } else if (decs.toLowerCase() === "sun") {
+    backgr.style.backgroundImage = "url(./images/d-sun.png)";
+  } else {
+    backgr.style.backgroundImage = "url(./images/d-partly.png)";
+  }
+}
