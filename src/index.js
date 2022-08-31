@@ -32,14 +32,14 @@ function converter(event) {
   let celsium = document.querySelector("#data-celsium");
   let fahrenheitInner = document.querySelector("#fahrenheit");
   let fahrenheit = (parseInt(celsium.innerHTML) * 9) / 5 + 32;
-  fahrenheitInner.innerHTML = `/ ${fahrenheit} °F`;
+  fahrenheitInner.innerHTML = `/ ${Math.round(fahrenheit)} °F`;
 }
 let toFahrenheit = document.querySelector("#fahrenheit");
 toFahrenheit.addEventListener("click", converter);
 
 function wheather(response) {
   document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#celsium").innerHTML = Math.round(
+  document.querySelector("#data-celsium").innerHTML = Math.round(
     response.data.main.temp
   );
   document.querySelector("#desc").innerHTML = response.data.weather[0].main;
@@ -95,3 +95,4 @@ function wheatherImg() {
     innerBackgr.style.backgroundImage = "url(./images/cloud.png)";
   }
 }
+searchCity("Kyiv");
