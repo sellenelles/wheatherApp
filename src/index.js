@@ -83,11 +83,15 @@ currLocation.addEventListener("click", getCurrentLocation);
 function wheatherImg() {
   let decs = document.querySelector("#desc").innerHTML;
   let backgr = document.querySelector("#backgr-wheather");
+  let innerBackgr = document.querySelector("#innerbackgr-wheather");
   if (decs.toLowerCase() === "clouds" || decs.toLowerCase() === "rain") {
     backgr.style.backgroundImage = "url(./images/d-cloud.png)";
+    innerBackgr.style.backgroundImage = "url(./images/rain.png)";
   } else if (decs.toLowerCase() === "sun") {
     backgr.style.backgroundImage = "url(./images/d-sun.png)";
+    innerBackgr.style.backgroundImage = "url(./images/sun.png)";
   } else {
     backgr.style.backgroundImage = "url(./images/d-partly.png)";
+    innerBackgr.style.backgroundImage = "url(./images/cloud.png)";
   }
 }
