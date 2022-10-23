@@ -1,4 +1,4 @@
-function currentTime(date) {
+function currentTime(date, showTime) {
   let days = [
     "Sunday",
     "Monday",
@@ -11,11 +11,13 @@ function currentTime(date) {
   let dateNow = days[date.getDay()];
   let hours = date.getHours();
   let minutes = date.getMinutes();
-  let currentDate = `${dateNow} ${hours}:${minutes}`;
-  let current = document.querySelector("#current-time");
-  current.innerHTML = currentDate;
+  let currentDate = showTime ? `${dateNow} ${hours}:${minutes}` : dateNow;
+  return currentDate;
 }
-currentTime(new Date());
+document.querySelector("#current-time").innerHTML = currentTime(
+  new Date(),
+  true
+);
 
 function searchResult(event) {
   event.preventDefault();
@@ -101,29 +103,37 @@ function wheatherImg() {
   }
 }
 
+function formatDay(str) {
+  return str;
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    console.log(forecastDay);
+    if (index < 5) {
       forecastHTML =
         forecastHTML +
         `
         <div class="col">
           <div class="d-flex flex-column align-items-center">
-            <div class="day">${formatDay(forecastDay.dt)}</div>
+            <div class="day">${currentTime(
+              new Date(forecastDay.time * 1000),
+              false
+            )}</div>
             <div class="pic">
-              <img src="http://openweathermap.org/img/wn/${
-                forecastDay.weather[0].icon
-              }@2x.png" alt="" width="30">
+              <img src="https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${
+                forecastDay.condition.icon
+              }.png" alt="" width="50">
             </div>
             <div class="temp">
                 <span class="temp-max">${Math.round(
-                  forecastDay.temp.max
-                )}°C</span>
+                  forecastDay.temperature.maximum
+                )}°C ...</span>
                 <span class="temp-min">${Math.round(
-                  forecastDay.temp.min
+                  forecastDay.temperature.minimum
                 )}°C</span>
             </div>
           </div>
@@ -137,8 +147,8 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = "7784a4cd4aa2e0c25ead7bd96d585b8a";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=${apiKey}&units=metric`;
+  let apiKey = "51of39c064736bf053t4b77f995abaf9";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 

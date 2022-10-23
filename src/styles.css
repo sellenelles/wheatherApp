@@ -8,9 +8,9 @@ body {
     rgb(204, 228, 247) 11.2%,
     rgb(237, 246, 250) 100.2%
   );
-  padding: 30px;
+  padding: 30px 25px;
   border-radius: 10px;
-  max-width: 600px;
+  max-width: 660px;
   margin: 0 auto;
 }
 h1 {
@@ -32,7 +32,7 @@ h1 {
   background-color: rgb(43, 91, 223);
   border: 1px solid rgb(43, 91, 223);
   color: white;
-  padding: 5px 15px;
+  padding: 5px 25px;
   transition: all 0.3s;
 }
 .current-btn:hover {
@@ -48,7 +48,7 @@ h1 {
   border: 1px solid rgb(128, 128, 128);
   background-color: white;
   border-radius: 5px;
-  margin-right: 7px;
+  margin-right: 13px;
 }
 .search-box button img {
   transition: all 0.4s;
@@ -69,7 +69,7 @@ h1 {
   border-radius: 5px;
 }
 .app-body {
-  padding: 20px 0 40px;
+  padding: 20px 0 25px;
 }
 .city-highliht {
   margin-bottom: 10px;
@@ -81,6 +81,7 @@ h1 {
 .current-time {
   display: inline-block;
   padding-left: 10px;
+  padding-bottom: 2px;
   color: grey;
 }
 .app-body-right {
@@ -127,4 +128,10 @@ h1 {
 }
 .pic {
   margin: 15px 0;
+}
+.temp {
+  font-size: 18px;
+}
+.temp-min {
+  color: grey;
 }
