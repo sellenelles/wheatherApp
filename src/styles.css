@@ -78,6 +78,11 @@ h1 {
   font-weight: 700;
   font-size: 35px;
 }
+.current-time {
+  display: inline-block;
+  padding-left: 10px;
+  color: grey;
+}
 .app-body-right {
   width: 200px;
   background-image: url(../images/d-sun.png);
@@ -97,7 +102,7 @@ h1 {
   height: 40px;
   background-image: url(../images/sun.png);
   background-repeat: no-repeat;
-  background-size: 35px auto;
+  background-size: 45px auto;
   background-position: 50% 50%;
 }
 .curent-temperature {

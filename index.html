@@ -66,7 +66,11 @@
         <div class="app-body d-flex justify-content-between">
           <div class="app-body-left">
             <div class="d-flex flex-column city-highliht">
-              <div class="current-city" id="city">Kyiv</div>
+              <div>
+                <span class="current-city" id="city">Kyiv</span>
+                <span class="current-time" id="current-time">Monday 15:20</span>
+              </div>
+
               <div class="d-flex align-items-center">
                 <div class="inner-wheather-img" id="innerbackgr-wheather"></div>
                 <div class="curent-temperature" id="celsium">
@@ -77,11 +81,17 @@
                 >
               </div>
             </div>
-            <div class="current-time" id="current-time">Monday 15:20</div>
+
             <div class="detailsd">
               <ul class="list-unstyled">
-                <li>Humidity: <span id="humidity">10</span>%</li>
-                <li>Wind: <span id="wind">10</span>km/h</li>
+                <li>
+                  <strong>Humidity: </strong><span id="humidity">10</span> %
+                </li>
+                <li><strong>Wind: </strong><span id="wind">10</span> km/h</li>
+                <li>
+                  <strong>Pressure: </strong
+                  ><span id="pressure">1000</span> mmHg
+                </li>
               </ul>
             </div>
           </div>
@@ -138,6 +148,7 @@
             </div>
           </div>
         </div>
+        <div class="app-footer" id="forecast"></div>
       </div>
     </div>
     <footer>

@@ -44,14 +44,19 @@ function wheather(response) {
   );
   document.querySelector("#desc").innerHTML = response.data.weather[0].main;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+  document.querySelector("#pressure").innerHTML = response.data.main.pressure;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
   );
+  document.querySelector(
+    "#innerbackgr-wheather"
+  ).style.backgroundImage = `url(http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png)`;
   wheatherImg();
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "c3a2fe64882b7436809dcf1359b31cce";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(wheather);
 }
@@ -63,7 +68,7 @@ function btnSubmit(event) {
 }
 
 function getLocation(position) {
-  let apiKey = "5f472b7acba333cd8a035ea85a0d4d4c";
+  let apiKey = "c3a2fe64882b7436809dcf1359b31cce";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
   axios.get(apiUrl).then(wheather);
@@ -83,16 +88,58 @@ currLocation.addEventListener("click", getCurrentLocation);
 function wheatherImg() {
   let decs = document.querySelector("#desc").innerHTML;
   let backgr = document.querySelector("#backgr-wheather");
-  let innerBackgr = document.querySelector("#innerbackgr-wheather");
-  if (decs.toLowerCase() === "clouds" || decs.toLowerCase() === "rain") {
+  if (
+    decs.toLowerCase() === "clouds" ||
+    decs.toLowerCase() === "rain" ||
+    decs.toLowerCase() === "fog"
+  ) {
     backgr.style.backgroundImage = "url(./images/d-cloud.png)";
-    innerBackgr.style.backgroundImage = "url(./images/rain.png)";
   } else if (decs.toLowerCase() === "sun") {
     backgr.style.backgroundImage = "url(./images/d-sun.png)";
-    innerBackgr.style.backgroundImage = "url(./images/sun.png)";
   } else {
     backgr.style.backgroundImage = "url(./images/d-partly.png)";
-    innerBackgr.style.backgroundImage = "url(./images/cloud.png)";
   }
 }
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+        <div class="col">
+          <div class="d-flex flex-column align-items-center">
+            <div class="day">${formatDay(forecastDay.dt)}</div>
+            <div class="pic">
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png" alt="" width="30">
+            </div>
+            <div class="temp">
+                <span class="temp-max">${Math.round(
+                  forecastDay.temp.max
+                )}°C</span>
+                <span class="temp-min">${Math.round(
+                  forecastDay.temp.min
+                )}°C</span>
+            </div>
+          </div>
+        </div>
+        `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "7784a4cd4aa2e0c25ead7bd96d585b8a";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${coordinates.lat}&lon=${coordinates.lon}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 searchCity("Kyiv");
